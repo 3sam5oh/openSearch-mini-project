@@ -1,0 +1,38 @@
+{
+  "properties": {
+    "title": {
+      "type": "text",
+      "analyzer": "my_analyzer",
+      "search_analyzer": "my_analyzer",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "author": {
+      "type": "keyword"
+    },
+    "body": {
+      "type": "text",
+      "analyzer": "my_analyzer",
+      "search_analyzer": "my_analyzer"
+    },
+    "category": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "date": {
+      "type": "date"
+    },
+    "url": {
+      "type": "keyword"
+    }
+  }
+}

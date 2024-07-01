@@ -1,0 +1,25 @@
+cloud:
+  aws:
+    credentials:
+      access-key:
+      secret-key:
+
+aws:
+  open-search:
+    id:
+    pwd:
+    region:
+    endpoint:
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
