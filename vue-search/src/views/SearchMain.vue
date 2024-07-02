@@ -12,7 +12,21 @@
                 <div v-if="results.length">
                     <!-- <p>검색 결과 :</p> -->
                     <ul>
-                        <li v-for="result in results" :key="result.link">{{ result.title }}</li>
+                        <li v-for="result in results" :key="result.link">
+                            제목: {{ result.title }}
+                            <hr>
+                            <br>
+                            카테고리: {{ result.category == '' ? "없음" : result.category }}
+                            <hr>
+                            <br>
+                            내용: {{ result.body }}
+                            <hr>
+                            <br>
+                            날짜: {{ result.date }}
+                            <hr>
+                            <br>
+                            작성자: {{ result.author }}
+                        </li>
                     </ul>
                 </div>
                 <div v-else style="background-color: #fff; padding: 15px; border: none; border-radius: 10px;">
