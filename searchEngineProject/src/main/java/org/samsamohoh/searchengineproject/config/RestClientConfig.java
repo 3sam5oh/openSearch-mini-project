@@ -41,15 +41,8 @@ public class RestClientConfig extends AbstractOpenSearchConfiguration {
     @Value("${aws.open-search.pwd}")
     private String pwd;
 
-    private int port = 443;
-    private String protocol = "https";
-
-    private final AWSCredentialsProvider awsCredentialsProvider;
-
-    @Autowired
-    public RestClientConfig(AWSCredentialsProvider awsCredentialsProvider) {
-        this.awsCredentialsProvider = awsCredentialsProvider;
-    }
+    private final int port = 443;
+    private final String protocol = "https";
 
     @Override
     @Bean
