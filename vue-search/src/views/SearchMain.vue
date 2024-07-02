@@ -12,7 +12,7 @@
                 <div v-if="results.length">
                     <!-- <p>검색 결과 :</p> -->
                     <ul>
-                        <li v-for="result in results" :key="result.link">
+                        <li v-for="result in results" :key="result.url" @click="openPage(result.url)">
                             제목: {{ result.title }}
                             <hr>
                             <br>
@@ -64,6 +64,9 @@ export default {
                 this.results = [];
             }
             // console.log(this.results);
+        },
+        openPage(url) {
+            window.open(url);
         }
     }
 };
