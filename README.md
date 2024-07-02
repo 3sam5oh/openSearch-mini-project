@@ -16,7 +16,7 @@
 ## ☁️ System Architecture
 <details>
   <summary>Architecture Image</summary>
-  <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/36ce9f02-9482-4618-abb6-c87fe68eec9a">
+  <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/b89b0a69-d199-4a0d-b3d5-93cb4b16127c">
 </details>
 
 ## ▶️ 시연 영상
