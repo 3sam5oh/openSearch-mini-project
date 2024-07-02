@@ -20,6 +20,6 @@ public class SemiServiceImpl implements SemiService{
     @Override
     public List<AWSBlog> findTest(String words) {
 
-        return semiRepo.findByTitle(words);
+        return semiRepo.searchAll(words);
     }
 }

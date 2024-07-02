@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SemiRepo extends ElasticsearchRepository<AWSBlog, String> {
+public interface SemiRepo extends ElasticsearchRepository<AWSBlog, String>, CustomSearchRepo {
 
     List<AWSBlog> findByTitle(String words);
 }
