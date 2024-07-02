@@ -20,9 +20,24 @@
 </details>
 
 ## 💬 팀원별 업무 & 일정
-
+- 김아영: 화면 구현, OpenSearch Feature Test
+- 이재원: 문서 작성, CI 구축
+- 이준형: AWS OpenSearch Service 연결, 인덱싱
+- 정태원: OpenSearch 기능 구현
 ### 헙업 내역
-
+<details>
+  <summary>일정계획 수립</summary>
+  <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/b7be5777-86fe-461c-8658-075b0cf62969">
+</details>
+<details>
+  <summary>회의 & 멘토링</summary>
+  <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/2bf2a3b6-51a1-43b0-8b6a-db9be5a02a4f">
+</details>
+<details>
+  <summary>소통</summary>
+<img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/bd98e97c-b5c2-4edc-b325-f38fb0c0d841">
+</details>
+  
 
 ## ▶️ 시연 영상
 <details>
