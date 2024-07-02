@@ -19,7 +19,7 @@
   <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/36ce9f02-9482-4618-abb6-c87fe68eec9a">
 </details>
 
-## ☁️ 시연 영상
+## ▶️ 시연 영상
 <details>
   <summary>시연 영상 예시 1</summary>
   <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/36ce9f02-9482-4618-abb6-c87fe68eec9a">
