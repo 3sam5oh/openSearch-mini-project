@@ -19,6 +19,11 @@
   <img width="600" alt="image" src="https://github.com/3sam5oh/openSearch-mini-project/assets/152199695/b89b0a69-d199-4a0d-b3d5-93cb4b16127c">
 </details>
 
+## 💬 팀원별 업무 & 일정
+
+### 헙업 내역
+
+
 ## ▶️ 시연 영상
 <details>
   <summary>시연 영상 예시 1</summary>
