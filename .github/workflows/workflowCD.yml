@@ -26,6 +26,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug Info
+        run: |
+          echo "Workflow Run ID: ${{ github.event.workflow_run.id }}"
+          echo "Workflow Run Status: ${{ github.event.workflow_run.conclusion }}"
+          echo "Artifact Name: ci-workflow-application-jar"
+
       - name: Download JAR file
         uses: actions/download-artifact@v4
         with:

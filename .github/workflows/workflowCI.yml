@@ -101,3 +101,10 @@ jobs:
           name: ci-workflow-application-jar
           path: searchEngineProject/build/libs/*.jar
           retention-days: 1
+
+      - name: List artifacts
+        run: |
+          echo "Listing contents of build/libs directory:"
+          ls -l searchEngineProject/build/libs/
+          echo "Artifact upload status:"
+          echo ${{ steps.upload-artifact.outputs.artifact-url }}
