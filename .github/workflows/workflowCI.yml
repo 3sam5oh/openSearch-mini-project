@@ -66,7 +66,7 @@ jobs:
 
       - name: Set Yaml
         run: |
-          envsubst < searchEngineProject/src/main/resources/application.yml.template > src/main/resources/application.yml
+          envsubst < searchEngineProject/src/main/resources/application.yml.template > searchEngineProject/src/main/resources/application.yml
           cat searchEngineProject/src/main/resources/application.yml
         env:
           AWS_OPEN_SEARCH_ID: ${{ secrets.AWS_OPEN_SEARCH_ID }}
