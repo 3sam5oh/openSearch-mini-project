@@ -41,6 +41,50 @@ jobs:
         run: chmod +x ./searchEngineProject/gradlew
         working-directory: .
 
+      - name: Create application.yml.template
+        run: |
+          mkdir -p src/main/resources
+          cat > src/main/resources/application.yml.template <<EOL
+          cloud:
+          aws:
+            credentials:
+              access-key:
+              secret-key:
+            open-search:
+              id: \${{ secrets.AWS_OPEN_SEARCH_ID }}
+              pwd: \${{ secrets.AWS_OPEN_SEARCH_PWD }}
+              region: \${{ secrets.AWS_OPEN_SEARCH_ID }}
+              endpoint: \${{ secrets.AWS_OPEN_SEARCH_ID }}
+          spring:
+            mvc:
+              pathmatch:
+                matching-strategy: ant_path_matcher
+          
+          server:
+            servlet:
+              encoding:
+                charset: UTF-8
+                enabled: true
+                force: true
+          EOL
+
+      - name: Set Yaml
+        run: |
+          envsubst < src/main/resources/application.yml.template > src/main/resources/application.yml
+          cat src/main/resources/application.yml
+        env:
+          AWS_OPEN_SEARCH_ID: ${{ secrets.AWS_OPEN_SEARCH_ID }}
+          AWS_OPEN_SEARCH_PWD: ${{ secrets.AWS_OPEN_SEARCH_PWD }}
+          AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_ID }}
+          AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ID }}
+
+
+
+
+
+
+
+
       - name: Build with Gradle
         run: ./gradlew clean build --stacktrace --info
         working-directory: ./searchEngineProject

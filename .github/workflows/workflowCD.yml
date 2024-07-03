@@ -16,8 +16,8 @@ jobs:
     env:
       AWS_OPEN_SEARCH_ID: ${{ secrets.AWS_OPEN_SEARCH_ID }}
       AWS_OPEN_SEARCH_PWD: ${{ secrets.AWS_OPEN_SEARCH_PWD }}
-      AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_REGION }}
-      AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ENDPOINT }}
+      AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_ID }}
+      AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ID }}
 
     steps:
       - name: Checkout repository
