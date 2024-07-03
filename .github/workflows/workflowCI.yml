@@ -39,7 +39,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean build --info -- build-cache
+        run: ./gradlew clean build --info --build-cache
 
       - name: Run tests
         run: ./gradlew test --info
