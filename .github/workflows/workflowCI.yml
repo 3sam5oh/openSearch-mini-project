@@ -22,24 +22,24 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Remove Gradle caches    # 됬으면 좋겠네
+      - name: Remove Gradle caches
         run: rm -rf ~/.gradle/caches/
         shell: bash
 
-#      - name: Cache Gradle packages
-#        id: cache-gradle
-#        uses: actions/cache@v4
-#        with:
-#          path: |
-#            ~/.gradle/caches
-#            ~/.gradle/wrapper
-#          key: ${{ runner.os }}-gradle-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/**/gradle-wrapper.properties') }}
-#          restore-keys: |
-#            ${{ runner.os }}-gradle-
-#
-#      - name: Cache check
-#        if: steps.cache-gradle.outputs.cache-hit == 'true'
-#        run: echo 'Gradle cache hit!'
+      #      - name: Cache Gradle packages
+      #        id: cache-gradle
+      #        uses: actions/cache@v4
+      #        with:
+      #          path: |
+      #            ~/.gradle/caches
+      #            ~/.gradle/wrapper
+      #          key: ${{ runner.os }}-gradle-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/**/gradle-wrapper.properties') }}
+      #          restore-keys: |
+      #            ${{ runner.os }}-gradle-
+      #
+      #      - name: Cache check
+      #        if: steps.cache-gradle.outputs.cache-hit == 'true'
+      #        run: echo 'Gradle cache hit!'
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./searchEngineProject/gradlew
@@ -53,8 +53,8 @@ jobs:
             open-search:
               id: \${{ secrets.AWS_OPEN_SEARCH_ID }}
               pwd: \${{ secrets.AWS_OPEN_SEARCH_PWD }}
-              region: \${{ secrets.AWS_OPEN_SEARCH_ID }}
-              endpoint: \${{ secrets.AWS_OPEN_SEARCH_ID }}
+              region: \${{ secrets.AWS_OPEN_SEARCH_REGION }}
+              endpoint: \${{ secrets.AWS_OPEN_SEARCH_ENDPOINT }}
           spring:
             mvc:
               pathmatch:
@@ -75,8 +75,8 @@ jobs:
         env:
           AWS_OPEN_SEARCH_ID: ${{ secrets.AWS_OPEN_SEARCH_ID }}
           AWS_OPEN_SEARCH_PWD: ${{ secrets.AWS_OPEN_SEARCH_PWD }}
-          AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_ID }}
-          AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ID }}
+          AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_REGION }}
+          AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ENDPOINT }}
 
       - name: Build with Gradle
         run: ./gradlew clean build --stacktrace --info
