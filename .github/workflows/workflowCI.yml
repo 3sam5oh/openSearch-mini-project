@@ -102,9 +102,9 @@ jobs:
           path: searchEngineProject/build/libs/*.jar
           retention-days: 1
 
-      - name: List artifacts
+      - name: Verify Artifact Upload
         run: |
-          echo "Listing contents of build/libs directory:"
-          ls -l searchEngineProject/build/libs/
           echo "Artifact upload status:"
           echo ${{ steps.upload-artifact.outputs.artifact-url }}
+          echo "Contents of build/libs directory after upload:"
+          ls -l searchEngineProject/build/libs/

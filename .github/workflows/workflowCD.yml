@@ -45,7 +45,7 @@ jobs:
           pwd
           echo "Contents of searchEngineProject/build/libs:"
           ls -l searchEngineProject/build/libs
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
