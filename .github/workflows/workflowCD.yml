@@ -36,9 +36,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ci-workflow-application-jar
-          path: searchEngineProject/build/libs
+          path: ./searchEngineProject/build/libs
           run-id: ${{ github.event.workflow_run.id }}
 
+      - name: Verify Download
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of searchEngineProject/build/libs:"
+          ls -l searchEngineProject/build/libs
+      
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
