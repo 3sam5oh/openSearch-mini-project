@@ -41,7 +41,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ github.repository }}-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-${{ github.repository }}-
-          fail-on-cache-miss: false
+          fail-on-cache-miss: true
 
       - name: Print cache key
         run: echo ${{ runner.os }}-gradle-${{ github.repository }}-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/gradle/wrapper/gradle-wrapper.properties') }}
