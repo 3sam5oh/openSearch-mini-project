@@ -6,10 +6,10 @@ cloud:
 
 aws:
   open-search:
-    id:
-    pwd:
-    region:
-    endpoint:
+    id: ${AWS_OPEN_SEARCH_ID}
+    pwd: ${AWS_OPEN_SEARCH_PWD}
+    region: ${AWS_OPEN_SEARCH_REGION}
+    endpoint: ${AWS_OPEN_SEARCH_ENDPOINT}
 
 spring:
   mvc:
