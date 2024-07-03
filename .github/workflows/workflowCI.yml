@@ -11,9 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./searchEngineProject
 
     steps:
       - name: Checkout repository
@@ -25,12 +22,6 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Print working directory
-        run: pwd
-
-      - name: List project files
-        run: ls -R
-
       - name: Cache Gradle packages
         id: cache-gradle
         uses: actions/cache@v4
@@ -38,32 +29,25 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ github.repository }}-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/gradle/wrapper/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/**/gradle-wrapper.properties') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-${{ github.repository }}-
-          fail-on-cache-miss: true
+            ${{ runner.os }}-gradle-
 
-      - name: Print cache key
-        run: echo ${{ runner.os }}-gradle-${{ github.repository }}-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/gradle/wrapper/gradle-wrapper.properties') }}
-
-      - name: Cache Check
-        if: steps.cache-gradle.outputs.cache-hit == 'true'
+      - name: Cache check
+        if: step.cache-gradle.outputs.cache-hit == 'true'
         run: echo 'Gradle cache hit!'
 
-      - name: Check Cache Miss
-        if: steps.cache-gradle.outputs.cache-hit != 'true'
-        run: |
-          echo 'Cache miss! Gradle cache not found.'
-          echo "Cache key: ${{ runner.os }}-gradle-${{ github.repository }}-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/gradle/wrapper/gradle-wrapper.properties') }}"
-
       - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+        run: chmod +x ./searchEngineProject/gradlew
+        working-directory: .
 
       - name: Build with Gradle
-        run: ./gradlew clean build --info --build-cache
+        run: ./gradlew clean build --info
+        working-directory: ./searchEngineProject
 
       - name: Run tests
         run: ./gradlew test --info
+        working-directory: ./searchEngineProject
 
       - name: Store test results
         uses: actions/upload-artifact@v4
@@ -76,12 +60,3 @@ jobs:
         with:
           name: application-jar
           path: searchEngineProject/build/libs/*.jar
-
-      - name: Save Gradle cache
-        if: always()
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ github.repository }}-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/gradle/wrapper/gradle-wrapper.properties') }}
