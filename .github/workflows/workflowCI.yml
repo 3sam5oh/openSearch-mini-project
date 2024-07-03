@@ -79,11 +79,11 @@ jobs:
           AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ENDPOINT }}
 
       - name: Build with Gradle
-        run: ./gradlew clean build --stacktrace --info
+        run: ./gradlew clean build --stacktrace --warn
         working-directory: ./searchEngineProject
 
       - name: Run tests
-        run: ./gradlew test --info
+        run: ./gradlew test --warn
         working-directory: ./searchEngineProject
 
       - name: Store test results
