@@ -98,5 +98,5 @@ jobs:
       - name: Upload JAR file
         uses: actions/upload-artifact@v4
         with:
-          name: application-jar
+          name: ci-workflow-application-jar
           path: searchEngineProject/build/libs/*.jar

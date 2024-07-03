@@ -5,10 +5,13 @@ on:
     workflows: ["CI Workflow"]
     types:
       - completed
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     defaults:
       run:
         working-directory: ./searchEngineProject
@@ -26,8 +29,9 @@ jobs:
       - name: Download JAR file
         uses: actions/download-artifact@v4
         with:
-          name: application-jar
+          name: ci-workflow-application-jar
           path: searchEngineProject/build/libs
+          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
