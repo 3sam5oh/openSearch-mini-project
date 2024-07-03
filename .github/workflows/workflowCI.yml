@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Remove Gradle caches
+      - name: Remove Gradle caches    # 됬으면 좋겠네
         run: rm -rf ~/.gradle/caches/
         shell: bash
 
