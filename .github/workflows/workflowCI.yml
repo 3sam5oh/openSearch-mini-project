@@ -11,6 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./searchEngineProject  # 작업 디렉토리 설정
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,10 +48,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: build/test-results
+          path: searchEngineProject/build/test-results
 
       - name: Upload JAR file
         uses: actions/upload-artifact@v4
         with:
           name: application-jar
-          path: build/libs/*.jar
+          path: searchEngineProject/build/libs/*.jar

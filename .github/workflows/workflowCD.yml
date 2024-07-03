@@ -9,11 +9,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./searchEngineProject
+
     env:
-      AWS_OPEN_SEARCH_ID: "${{ secrets.AWS_OPEN_SEARCH_ID }}"
-      AWS_OPEN_SEARCH_PWD: "${{ secrets.AWS_OPEN_SEARCH_PWD }}"
-      AWS_OPEN_SEARCH_REGION: "${{ secrets.AWS_OPEN_SEARCH_REGION }}"
-      AWS_OPEN_SEARCH_ENDPOINT: "${{ secrets.AWS_OPEN_SEARCH_ENDPOINT }}"
+      AWS_OPEN_SEARCH_ID: ${{ secrets.AWS_OPEN_SEARCH_ID }}
+      AWS_OPEN_SEARCH_PWD: ${{ secrets.AWS_OPEN_SEARCH_PWD }}
+      AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_REGION }}
+      AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ENDPOINT }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,7 +27,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: application-jar
-          path: build/libs
+          path: searchEngineProject/build/libs
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -36,7 +41,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: Dockerfile
+          context: ./searchEngineProject
+          file: ./searchEngineProject/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/aws-open-search:latest
