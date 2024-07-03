@@ -22,20 +22,20 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-      - name: Cache Gradle packages
-        id: cache-gradle
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Cache check
-        if: steps.cache-gradle.outputs.cache-hit == 'true'
-        run: echo 'Gradle cache hit!'
+#      - name: Cache Gradle packages
+#        id: cache-gradle
+#        uses: actions/cache@v4
+#        with:
+#          path: |
+#            ~/.gradle/caches
+#            ~/.gradle/wrapper
+#          key: ${{ runner.os }}-gradle-${{ hashFiles('searchEngineProject/**/*.gradle*', 'searchEngineProject/**/gradle-wrapper.properties') }}
+#          restore-keys: |
+#            ${{ runner.os }}-gradle-
+#
+#      - name: Cache check
+#        if: steps.cache-gradle.outputs.cache-hit == 'true'
+#        run: echo 'Gradle cache hit!'
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./searchEngineProject/gradlew
@@ -77,13 +77,6 @@ jobs:
           AWS_OPEN_SEARCH_PWD: ${{ secrets.AWS_OPEN_SEARCH_PWD }}
           AWS_OPEN_SEARCH_REGION: ${{ secrets.AWS_OPEN_SEARCH_ID }}
           AWS_OPEN_SEARCH_ENDPOINT: ${{ secrets.AWS_OPEN_SEARCH_ID }}
-
-
-
-
-
-
-
 
       - name: Build with Gradle
         run: ./gradlew clean build --stacktrace --info
