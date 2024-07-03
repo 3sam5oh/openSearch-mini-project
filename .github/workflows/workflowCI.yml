@@ -42,7 +42,7 @@ jobs:
         working-directory: .
 
       - name: Build with Gradle
-        run: ./gradlew clean build --info
+        run: ./gradlew clean build --stacktrace --info
         working-directory: ./searchEngineProject
 
       - name: Run tests
