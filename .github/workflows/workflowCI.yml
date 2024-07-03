@@ -26,7 +26,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Cache Gradle packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
@@ -39,7 +39,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean build --info
+        run: ./gradlew clean build --info -- build-cache
 
       - name: Run tests
         run: ./gradlew test --info
