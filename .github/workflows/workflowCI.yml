@@ -101,6 +101,7 @@ jobs:
           name: ci-workflow-application-jar
           path: searchEngineProject/build/libs/*.jar
           retention-days: 1
+          run-id: ${{ github.run_id }}
 
       - name: Verify Artifact Upload
         run: |
