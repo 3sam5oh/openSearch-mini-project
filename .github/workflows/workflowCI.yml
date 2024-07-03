@@ -86,6 +86,13 @@ jobs:
         run: ./gradlew test --warn
         working-directory: ./searchEngineProject
 
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: searchEngineProject/build/reports/tests/test
+
       - name: Store test results
         uses: actions/upload-artifact@v4
         with:
