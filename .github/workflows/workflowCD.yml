@@ -36,7 +36,7 @@ jobs:
         with:
           name: ci-workflow-application-jar
           path: ./searchEngineProject/build/libs
-          run-id: ${{ github.event.workflow_run.parent_run_id }}
+          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Verify Download
         run: |
