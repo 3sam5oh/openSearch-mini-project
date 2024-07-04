@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.annotations.*;
 import java.util.Date;
 
 @Data
-@Document(indexName = "aws-blog-kr-0702")
+@Document(indexName = "aws-blog-kr-0703-1")
 @Mapping(mappingPath = "mapping.json")
 @Setting(settingPath = "setting.json")
 public class AWSBlog {
