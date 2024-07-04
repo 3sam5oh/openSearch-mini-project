@@ -1,6 +1,6 @@
 # openSearch-mini-project
 
-
+[![dockerhub-image-push](https://github.com/3sam5oh/openSearch-mini-project/actions/workflows/dockerize-and-push.yml/badge.svg?branch=main)](https://github.com/3sam5oh/openSearch-mini-project/actions/workflows/dockerize-and-push.yml)
 
 
 ##  👋 팀원을 소개합니다
